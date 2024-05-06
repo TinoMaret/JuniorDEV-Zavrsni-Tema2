@@ -6,7 +6,9 @@
 			"datum": "01.01.2025",
 			"predavac": "predavac_1",
 			"opis": "Kratki opis radionice 1",
-			"broj_prijava": 0
+			"broj_prijava": 0,
+			"tezina": "Junior",
+			"tema": "React"
 		}
 	],
 	"predavaci": [

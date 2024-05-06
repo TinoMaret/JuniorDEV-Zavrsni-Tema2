@@ -9,7 +9,7 @@ function NavBar(){
           <li><Link to={"/"}>Home</Link></li>
           <li><Link to={"/Radionice"}>Radionice</Link></li>
           <li><Link to={"/Predavaci"}>Predavaci</Link></li>
-          {checked ? <li><Link to={"/Administracija"}>Administracija</Link></li> : <li><Link to={"/Predavaci"}>Administracija</Link></li>}
+          {checked ? <li><Link to={"/Administracija"}>Administracija</Link></li> : <li><Link to={"/"}>Administracija</Link></li>}
         </ul>
       </nav>
     </>)

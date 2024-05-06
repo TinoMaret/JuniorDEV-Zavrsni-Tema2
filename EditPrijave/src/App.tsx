@@ -18,7 +18,6 @@ function App() {
         <NavBar></NavBar>
         <AdminCheckbox>
         </AdminCheckbox>
-      </AdminProvider>
       <Routes>
         <Route path="/" element = {<Home></Home>}></Route>
         <Route path='/Administracija' element = {<Administracija></Administracija>}></Route>
@@ -26,6 +25,7 @@ function App() {
         <Route path='/Radionice' element = {<Radionice></Radionice>}></Route>
         <Route></Route>
       </Routes>
+      </AdminProvider>
     </>
   )
 }
