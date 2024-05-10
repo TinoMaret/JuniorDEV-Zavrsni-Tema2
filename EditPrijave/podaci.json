@@ -16,7 +16,15 @@
 			"id": "predavac_1",
 			"ime": "Predavac 1",
 			"biografija": "Biografija predavaca 1",
-			"organizacija": "organizacija_1"
+			"organizacija": "organizacija_1",
+			"teme": "React"
+		},
+		{
+			"id": "predavac_2",
+			"ime": "Predavac 2",
+			"biografija": "Biografija predavaca 2",
+			"organizacija": "organizacija_2",
+			"teme": "Express"
 		}
 	],
 	"organizacije": [

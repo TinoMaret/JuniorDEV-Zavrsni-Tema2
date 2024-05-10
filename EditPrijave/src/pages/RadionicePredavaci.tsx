@@ -2,13 +2,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AdminContext } from "../components/Admin/AdminContext";
 import ApplicationForm from '../components/ApplicationForm.tsx'
-import { Link } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
-function Predavaci() {
+interface Params {
+    predavac: string;
+}
+
+function RadionicePredavaci() {
     const [dataArray, setDataArray] = useState<any[]>([]);
     const [themes, setThemes] = useState<any[]>([]);
     const [level, setLevel] = useState<any[]>([]);
     const { checked } = AdminContext();
+    const { predavac } = useParams<keyof Params>() as Params;
+
     
     /*
         const fetchData = async () => {
@@ -68,6 +74,7 @@ function Predavaci() {
         fetchLevel();
     }, [attribute1Filters, attribute2Filters]);
 
+
     // Function to make the GET request with filters
     const fetchDataWithFilters = () => {
         const queryParams = new URLSearchParams();
@@ -81,9 +88,11 @@ function Predavaci() {
         attribute2Filters.forEach(filter => {
           queryParams.append('tema', filter);
         });
+
+        queryParams.append('predavac', predavac)
     
         // Make the GET request with axios
-        axios.get(`http://localhost:3001/predavaci?${queryParams.toString()}`)
+        axios.get(`http://localhost:3001/radionice?${queryParams.toString()}`)
           .then(response => {
             // Handle response data
             setDataArray(response.data);
@@ -96,6 +105,9 @@ function Predavaci() {
 
       const [formVisible, setFormVisible] = useState(false);
 
+      const handleOpenForm = () => {
+        setFormVisible(true);
+      };
 
       const handleCloseForm = () => {
         setFormVisible(false);
@@ -149,7 +161,7 @@ function Predavaci() {
 
 
     return (<>
-        {checked ? <button>Dodaj novog predavaca</button> : <></>}
+        {checked ? <button>Dodaj novu radionicu</button> : <></>}
         <div>
             {/* Render attribute 1 checkboxes */}
             {renderAttribute1Checkboxes()}
@@ -164,12 +176,10 @@ function Predavaci() {
             {dataArray.map((item, index) => (
                 <div key={index}>
                     <h2>{item.ime}</h2>
-                    <p>{item.biografija}</p>
-                    <p>{item.organizacija}</p>
-                    <p>{item.teme}</p>
-                    <Link to={`/RadionicePredavaci/${item.id}`} >
-                         <button onClick={() => {console.log(item.ime)}}>Radionice Predavaca</button>
-                    </Link>
+                    <p>{item.opis}</p>
+                    <p>{item.predavac}</p>
+                    <p>{item.datum}</p>
+                    <button onClick={handleOpenForm}>Prijavi se</button>
                     {formVisible && <ApplicationForm onCloseForm={handleCloseForm} />}
                     {checked ? <button>Uredi</button> : <></>}
                 </div>
@@ -178,4 +188,4 @@ function Predavaci() {
     </>);
 }
 
-    export default Predavaci;
+    export default RadionicePredavaci;

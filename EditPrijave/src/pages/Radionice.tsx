@@ -68,6 +68,7 @@ function Radionice() {
         fetchLevel();
     }, [attribute1Filters, attribute2Filters]);
 
+
     // Function to make the GET request with filters
     const fetchDataWithFilters = () => {
         const queryParams = new URLSearchParams();
@@ -81,6 +82,7 @@ function Radionice() {
         attribute2Filters.forEach(filter => {
           queryParams.append('tema', filter);
         });
+
     
         // Make the GET request with axios
         axios.get(`http://localhost:3001/radionice?${queryParams.toString()}`)
