@@ -124,7 +124,6 @@ function Predavaci() {
         );
     };
 
-    // Example of rendering checkboxes for attribute 2
     const renderAttribute2Checkboxes = () => {
         return (
             <div>

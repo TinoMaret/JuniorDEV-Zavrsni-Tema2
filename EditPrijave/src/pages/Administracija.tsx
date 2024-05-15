@@ -1,7 +1,13 @@
+import AdminBar from "../components/AdminBar.tsx";
+
+
+
 function Administracija(){
-    return(<>
-        <h2>Administracija</h2>
-    </>)
+
+    return (<>
+        <AdminBar></AdminBar>
+    </>);
 }
+
 
 export default Administracija;
