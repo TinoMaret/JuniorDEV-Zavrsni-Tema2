@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 interface FormData {
@@ -8,20 +9,30 @@ interface FormData {
 
 interface Props {
   onCloseForm: () => void;
+  item:{
+    id:string
+    broj_prijava:number
+  }
 }
 
-const FormComponent: React.FC<Props> = ({ onCloseForm }) => {
+const FormComponent: React.FC<Props> = ({ onCloseForm, item }) => {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you can implement the logic to submit the form data
-    // For demonstration, let's just log the data
     console.log(formData);
-    // Clear form fields
     setFormData({ name: '', email: '', message: '' });
-    // Set submitted to true
+    axios.patch(`http://localhost:3001/radionice/${item.id}`, {
+      broj_prijava: item.broj_prijava + 1
+    })
+      .then(response => {
+        console.log('PATCH request successful!');
+        console.log('Updated data:', response.data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
     setSubmitted(true);
   };
 

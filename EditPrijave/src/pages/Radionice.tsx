@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AdminContext } from "../components/Admin/AdminContext";
 import ApplicationForm from '../components/ApplicationForm.tsx'
+import EditObjectForm from "../components/UrediRadionicuForma.tsx";
+import AddObjectForm from "../components/Admin/DodajRadionicuForma.tsx";
 
 function Radionice() {
     const [dataArray, setDataArray] = useState<any[]>([]);
@@ -66,7 +68,7 @@ function Radionice() {
         fetchDataWithFilters();
         fetchThemes();
         fetchLevel();
-    }, [attribute1Filters, attribute2Filters]);
+    }, [attribute1Filters, attribute2Filters, dataArray]);
 
 
     // Function to make the GET request with filters
@@ -152,9 +154,37 @@ function Radionice() {
         );
     };
 
+    const [showForm, setShowForm] = useState(false);
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+    const handleButtonClick = () => {
+        setShowForm(true);
+        setIsFormSubmitted(false);
+    };
+
+    const handleFormSubmit = () => {
+        setIsFormSubmitted(true); // Set form submission state to true
+        setShowForm(false); // Hide the form after submission
+    };
+
+    const [showForm2, setShowForm2] = useState(false);
+    const [isFormSubmitted2, setIsFormSubmitted2] = useState(false); // State to track form submission
+
+    const handleAddButtonClick2 = () => {
+        setShowForm2(true);
+        setIsFormSubmitted2(false); // Reset form submission state
+    };
+
+    const handleFormSubmit2 = () => {
+        setIsFormSubmitted2(true); // Set form submission state to true
+        setShowForm2(false); // Hide the form after submission
+    };
+    
 
     return (<>
-        {checked ? <button>Dodaj novu radionicu</button> : <></>}
+        {checked ? <button onClick={handleAddButtonClick2}>Add Object</button>:<></>}
+        {showForm2 && <AddObjectForm onSubmit={handleFormSubmit2} />}
+        {isFormSubmitted2 && <p>Object added successfully!</p>}
         <div>
             {/* Render attribute 1 checkboxes */}
             {renderAttribute1Checkboxes()}
@@ -173,8 +203,10 @@ function Radionice() {
                     <p>{item.predavac}</p>
                     <p>{item.datum}</p>
                     <button onClick={handleOpenForm}>Prijavi se</button>
-                    {formVisible && <ApplicationForm onCloseForm={handleCloseForm} />}
-                    {checked ? <button>Uredi</button> : <></>}
+                    {formVisible && <ApplicationForm onCloseForm={handleCloseForm} item={item}/>}
+                    {checked ? <button onClick={handleButtonClick}>Uredi</button>:<></>}
+                    {showForm && <EditObjectForm id={item.id} onSubmit={handleFormSubmit}/>}
+                    {isFormSubmitted && <p>Form submitted successfully!</p>}
                 </div>
             ))}
         </div>

@@ -1,68 +1,77 @@
 {
-	"radionice": [
-		{
-			"id": "radionica_1",
-			"ime": "Radionica 1",
-			"datum": "01.01.2025",
-			"predavac": "predavac_1",
-			"opis": "Kratki opis radionice 1",
-			"broj_prijava": 0,
-			"tezina": "Junior",
-			"tema": "React"
-		}
-	],
-	"predavaci": [
-		{
-			"id": "predavac_1",
-			"ime": "Predavac 1",
-			"biografija": "Biografija predavaca 1",
-			"organizacija": "organizacija_1",
-			"teme": "React"
-		},
-		{
-			"id": "predavac_2",
-			"ime": "Predavac 2",
-			"biografija": "Biografija predavaca 2",
-			"organizacija": "organizacija_2",
-			"teme": "Express"
-		}
-	],
-	"organizacije": [
-		{
-			"id": "organizacija_1",
-			"ime": "Organizacija 1",
-			"opis": "Opis organizacije 1",
-			"radionice": [
-				"radionica_1"
-			]
-		}
-	],
-	"tezine": [
-		{
-			"id": "junior",
-			"ime": "Junior"
-		},
-		{
-			"id": "mid",
-			"ime": "Mid"
-		},
-		{
-			"id": "senior",
-			"ime": "Senior"
-		}
-	],
-	"teme": [
-		{
-			"id": "react",
-			"ime": "React"
-		},
-		{
-			"id": "express",
-			"ime": "Express"
-		},
-		{
-			"id": "next_js",
-			"ime": "Next.js"
-		}
-	]
+  "radionice": [
+    {
+      "id": "radionica_1",
+      "ime": "Radionica 1",
+      "datum": "01.01.2025",
+      "predavac": "predavac_1",
+      "opis": "Kratki opis radionice 1",
+      "broj_prijava": 1,
+      "tezina": "Junior",
+      "tema": "React"
+    },
+    {
+      "id": "669a",
+      "ime": "Radionica 2",
+      "datum": "02.02.2026",
+      "predavac": "predavac_2",
+      "opis": "Kratki opis radionice 2",
+      "tezina": "Mid",
+      "tema": "Express"
+    }
+  ],
+  "predavaci": [
+    {
+      "id": "predavac_1",
+      "ime": "Predavac 1",
+      "biografija": "Biografija predavaca 1",
+      "organizacija": "organizacija_1",
+      "teme": "React"
+    },
+    {
+      "id": "predavac_2",
+      "ime": "Predavac 2",
+      "biografija": "Biografija predavaca 2",
+      "organizacija": "organizacija_2",
+      "teme": "Express"
+    }
+  ],
+  "organizacije": [
+    {
+      "id": "organizacija_1",
+      "ime": "Organizacija 1",
+      "opis": "Opis organizacije 1",
+      "radionice": [
+        "radionica_1"
+      ]
+    }
+  ],
+  "tezine": [
+    {
+      "id": "junior",
+      "ime": "Junior"
+    },
+    {
+      "id": "mid",
+      "ime": "Mid"
+    },
+    {
+      "id": "senior",
+      "ime": "Senior"
+    }
+  ],
+  "teme": [
+    {
+      "id": "react",
+      "ime": "React"
+    },
+    {
+      "id": "express",
+      "ime": "Express"
+    },
+    {
+      "id": "next_js",
+      "ime": "Next.js"
+    }
+  ]
 }
